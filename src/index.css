@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #1F2D3D;
+    background-color: #FFFFFF;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+    color: #1F2D3D;
+    letter-spacing: -0.02em;
+  }
+
+  /* Scale: titular móvil 34-40px, texto 16-17px, notas 14px, nada < 12px */
+  p, li, td, th {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes marquee-reverse {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 38s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.animate-marquee-slow {
+  display: flex;
+  width: max-content;
+  animation: marquee 55s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-slow:hover,
+.animate-marquee-slow:focus-within,
+.animate-marquee-slow:active {
+  animation-play-state: paused;
+}
+
+.animate-marquee-slow-reverse {
+  display: flex;
+  width: max-content;
+  animation: marquee-reverse 55s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-slow-reverse:hover,
+.animate-marquee-slow-reverse:focus-within,
+.animate-marquee-slow-reverse:active {
+  animation-play-state: paused;
+}
+
+@keyframes sector-card-enter {
+  0% {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-sector-enter {
+  animation: sector-card-enter 180ms ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .animate-marquee,
+  .animate-marquee-slow,
+  .animate-marquee-slow-reverse {
+    animation: none !important;
+    transform: none !important;
+  }
+  .marquee-row-reduced {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    width: 100% !important;
+  }
+  .marquee-duplicate {
+    display: none !important;
+  }
+  .animate-sector-enter {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+
+
+/* Shared legibility and motion rules for the approved responsive designs. */
+@font-face { font-family: 'Inter'; src: url('/fonts/inter-latin.woff2') format('woff2'); font-style: normal; font-weight: 400 700; font-display: swap; }
+@font-face { font-family: 'Playfair Display'; src: url('/fonts/playfair-latin.woff2') format('woff2'); font-style: normal; font-weight: 400 800; font-display: swap; }
+:root { --tv-note: 14px; --tv-body: 16px; --tv-body-large: 17px; --tv-heading: 24px; --tv-title-mobile: 34px; --tv-title: 44px; --tv-hero: 56px; --tv-caption: 12px; }
+main p, main li, main td, main th, main input, main textarea, main select { font-size: var(--tv-body); }
+main p a, footer a { min-height: 44px; display: inline-flex; align-items: center; }
+button { min-height: 44px; }
+[class~="text-[10px]"], [class~="text-[11px]"] { font-size: var(--tv-caption); }
+.animate-marquee, .animate-marquee-slow, .animate-marquee-slow-reverse { animation: none !important; transform: none !important; flex-wrap: wrap !important; width: 100% !important; justify-content: center; }
+.marquee-duplicate { display: none !important; }
+.animate-sector-enter, .animate-in { animation: none !important; transform: none !important; opacity: 1 !important; }
+@media (max-width: 1023px) { main h1 { font-size: var(--tv-title-mobile); line-height: 1.16; } }

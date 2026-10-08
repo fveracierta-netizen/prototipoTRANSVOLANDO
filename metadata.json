@@ -1,0 +1,8 @@
+{
+  "name": "Transvolando_v2",
+  "description": "Rediseño oficial y plataforma web responsive B2B para Transvolando: servicios de transporte de maquinaria, cargas completas, grupaje, internacional, cotizador interactivo y atención con gestor único.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
